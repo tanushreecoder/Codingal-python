@@ -1,0 +1,20 @@
+mylist = ['Apple', 'Banana', 'Orange', 'Cherry', 'Mango']
+print("The length of the list is", len(mylist))  
+print("The first element is", mylist[0])
+print("The last element is", mylist[4])
+mylist.append('Lemon')
+print("Now the list is", mylist)
+mylist.pop(1)
+print("Now the list is", mylist)
+mylist.remove('Cherry')
+print("Again, the list now is", mylist)
+mylist.sort()
+print(mylist)
+mylist.reverse()
+print(mylist)
+slicedlist = mylist[1:2]
+print(slicedlist)
+slicedlist = mylist[:3]
+print(slicedlist)
+mylist.clear()
+print(mylist)
