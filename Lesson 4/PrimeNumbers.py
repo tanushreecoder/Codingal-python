@@ -1,3 +1,8 @@
+import os
+def clear_screen():
+     os.system('cls' if os.name == 'nt' else 'clear')
+clear_screen()
+
 x = int(input("What is the number you want to checked if it is a prime number or not? "))
 flag = False
 if x > 1:
