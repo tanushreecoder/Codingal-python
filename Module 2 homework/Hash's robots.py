@@ -27,4 +27,4 @@ if x == "Tom":
     else:
         print("This is not in his program. Try another keyword.")
 else:
-    print("That robot is not available.")
+    print("That robot is not available for now.")
