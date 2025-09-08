@@ -1,0 +1,6 @@
+Parvin = English
+Lily = History
+Haylo = PoliticsSuja = Math
+Dell = Literature
+Mimi = Music
+Lilac = Information and communication technology

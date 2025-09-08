@@ -1,0 +1,4 @@
+Suja = Math
+Dell = Literature
+Mimi = Music
+Lilac = Information and communication technology
