@@ -1,7 +1,0 @@
-Coding
-Coding is some intructions to the computer so it can perform task
-Parvin = English
-Haylo = Politics
-Dell = Literature
-Lilac = Information and communication technology
-
