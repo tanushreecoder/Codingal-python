@@ -6,8 +6,8 @@ root.title("Rock Paper Scissors")
 root.geometry("400x500")
 
 
-win_img = ImageTk.PhotoImage(Image.open("You lose.jpg").resize((200, 200)))
-lose_img = ImageTk.PhotoImage(Image.open("You win.jpg").resize((200, 200)))
+win_img = ImageTk.PhotoImage(Image.open("Youlose.jpg").resize((200, 200)))
+lose_img = ImageTk.PhotoImage(Image.open("Youwin.jpg").resize((200, 200)))
 draw_img = ImageTk.PhotoImage(Image.open("draw.png").resize((200, 200)))
 
 choices = ['Rock', 'Paper', 'Scissors']
