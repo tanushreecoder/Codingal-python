@@ -1,62 +1,105 @@
-import colorama
-from colorama import Fore, Style
-from textblob import Textblob
-colorama.init()
-print(f"{Fore.CYAN} 👋🎉 Welcome to sentiment spy 🕵️‍♂️ {Style.RESET_ALL}")
-user_name = input(f"{Fore.MAGENTA} Please enter your name: {Style.RESET_ALL} ").strip()
+from textblob import TextBlob
+
+print("👋🎉 Welcome to Sentiment Spy 🕵️‍♂️")
+
+user_name = input("Please enter your name: ").strip()
+
 if not user_name:
-    user_name = "Mystery Agent"
+
+   user_name = "Mystery Agent"
+
 conversation_history = []
-print(f"\n{Fore.CYAN}Hello Agent {user_name}!")
-print(f"Type a sentence and I will analyze your sentence with textblob and I will show you the sentiment 🔎")
-print(f"{Fore.YELLOW} 'reset' {Fore.CYAN}, {Fore.YELLOW}'History'{Fore.CYAN}, "f"or {Fore.YELLOW}'exit'{Fore.CYAN} to quit. {Style.RESET_ALL}\n")
+
+print(f"\nHello Agent {user_name}!")
+
+print("Type a sentence and I will analyze your sentence with TextBlob 🔎")
+
+print("Type 'reset', 'history', or 'exit' to quit.\n")
+
 while True:
-    user_input = input(f"{Fore.GREEN}>> {Style.RESET_ALL}").strip()
+
+    user_input = input(">> ").strip()
+
     if not user_input:
-        print(f"{Fore.RED} please enter some text or a valid command.{Style.RESET_ALL}")
+
+        print("Please enter some text or a valid command.")
+
         continue
+
     if user_input.lower() == "exit":
-        print(f"{Fore.BLUE} 🚪 exiting sentiment spy. Farewell agent {user_input}!  {Style.RESET_ALL}")
+
+        print(f"🚪 Exiting Sentiment Spy. Farewell Agent {user_name}!")
+
         break
-    elif user_input.lower() == 'reset':
+
+    elif user_input.lower() == "reset":
+
         conversation_history.clear()
-        print(f"{Fore.CYAN}🎉All conversation history has been cleared! {Style.RESET_ALL}")
+
+        print("🎉 All conversation history has been cleared!")
+
         continue
-    elif user_input == 'history':
+
+    elif user_input.lower() == "history":
+
         if not conversation_history:
-            print(f"{Fore.YELLOW}No conversation history yet. {Style.RESET_ALL}")
+
+            print("No conversation history yet.")
+
         else:
-            print(f"{Fore.CYAN} Conversation History: {Style.RESET_ALL}")
+
+            print("\nConversation History:")
+
             for idx, (text, polarity, sentiment_type) in enumerate(conversation_history, start=1):
-                if sentiment_type == 'Positive':
-                    color = Fore.GREEN
-                    emoji = '😃'
-                elif sentiment_type == 'Negative':
-                    color = Fore.RED
-                    emoji = '😞'
+
+                if sentiment_type == "Positive":
+
+                    emoji = "😃"
+
+                elif sentiment_type == "Negative":
+
+                    emoji = "😞"
+
                 else:
-                    color = Fore.YELLOW
-                    emoji = '😑'
-                print(
-                    f"{idx}. {color}{emoji} {text} "
-                    f"(Polarity: {polarity:.2f}, {sentiment_type}) {Style.RESET_ALL}"
-                )
-        continue
-    polarity = Textblob(user_input).sentiment.polarity
-    if polarity > 0.25:
-        sentiment_type = "Positive"
-        color = Fore.GREEN
-        emoji = "😃"
-    elif polarity < -0.25:
-        sentiment_type = "Negative"
-        color = Fore.RED
-        emoji = "😞"
-    else:
-        sentiment_type = "Neutral"
-        color = Fore.YELLOW
-        emoji = "😑"
-    conversation_history.append((user_input, polarity, sentiment_type))
-    print(
-        f"{color}{emoji} {sentiment_type} sentiment detected! "
-        f"(Polarity: {polarity:.2f}){Style.RESET_ALL}"
-    )
+
+                    emoji = "😑"
+
+                    print(
+
+                            f"{idx}. {emoji} {text} "
+
+                            f"(Polarity: {polarity:.2f}, {sentiment_type})"
+
+                        )
+
+            continue
+
+polarity = TextBlob(user_input).sentiment.polarity
+
+if polarity > 0.25:
+
+    sentiment_type = "Positive"
+
+    emoji = "😃"
+
+elif polarity < -0.25:
+
+    sentiment_type = "Negative"
+
+    emoji = "😞"
+
+else:
+
+    sentiment_type = "Neutral"
+
+    emoji = "😑"
+
+conversation_history.append((user_input, polarity, sentiment_type))
+
+print(
+
+f"{emoji} {sentiment_type} sentiment detected! "
+
+f"(Polarity: {polarity:.2f})"
+
+)
