@@ -1,4 +1,4 @@
-name = "Penguin"
+name = input("What's your name?")
 age = 15
 is_student = True
 weight = 43.5
